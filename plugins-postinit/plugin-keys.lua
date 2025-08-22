@@ -116,6 +116,6 @@ opts)
 -- [[<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand("$HOME") })<CR>]],
 -- opts)
 
--- comment toggle
+-- comment code lines
 vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>CommentToggle<CR>', opts)
 

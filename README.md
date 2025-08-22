@@ -26,8 +26,14 @@ LSP protocols are configured for languages:
 * PYTHON
 
 ### Basic mappings
-`jj`/`jk` - switch to normal mode  
-`leader`+`e` - open the file tree  
-`:cd directory_name` - go to the directory in the file tree  
-`leader`+`h` - open horizontal terminal  
+| mapping   | description    |
+|----------|----------------|
+| `jj`/`jk`  | switch to normal mode |
+| `leader`+`e`   | open the file tree   |
+| `:cd directory_name`   | go to the directory in the file tree   |
+| `leader`+`h`  | open horizontal terminal |
+| `leader`+`v`  | open vertiacal terminal |
+| `leader`+`x` | switch to normal mode in terminal |
+| `leader`+`/` | comment code lines |
+| `Alt`+`j`/`k` | move code line up/down |
 
