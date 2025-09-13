@@ -38,7 +38,7 @@ end
 -- 3. setup nvimtree use lunarvim icons
 local lvim = {}
 lvim.use_icons = true
-lvim.icons = require("plugins-preinit.icons")
+lvim.icons = require("plugins-init-sys-all.icons")
 
 require("nvim-tree").setup({
 	experimental = {},

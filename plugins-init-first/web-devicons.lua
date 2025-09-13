@@ -9,7 +9,7 @@ require('nvim-web-devicons').setup {
 			color = "#EDEDED",
 			name = "Readme"
 		},
-		["readme.md"] = {
+		["README.md"] = {
 			icon = "",
 			color = "#EDEDED",
 			name = "Readme"

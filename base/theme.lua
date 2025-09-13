@@ -1,3 +1,6 @@
+require("getos")
+require("getexist")
+
 -- enable 24-bit colour
 vim.opt.termguicolors = true
 
@@ -29,12 +32,25 @@ vim.opt.spell = true
 vim.opt.spelllang = { "en_us", "ru_yo" }
 
 -- choose shell
-vim.o.shell = "/usr/bin/fish"
+if is_unix_system() then
+	local shell = "/usr/bin/fish"
+	if file_exists(shell) then
+		vim.o.shell = shell
+	end
+else
+	vim.o.shell = 'powershell'
+	vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+	vim.o.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+	vim.o.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+	vim.o.shellquote = ''
+	vim.o.shellxquote = ''
+end
+
 vim.api.nvim_create_autocmd("TermOpen", {
-  pattern = "*",
-  callback = function()
-    vim.opt_local.spell = false
-  end,
+	pattern = "*",
+	callback = function()
+		vim.opt_local.spell = false
+	end,
 })
 
 -- make the search case insensitive

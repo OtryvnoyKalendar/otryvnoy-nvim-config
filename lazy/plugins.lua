@@ -35,7 +35,7 @@ require("lazy").setup({
 		end
     },
     {"williamboman/mason.nvim"},
-	{'nvim-telescope/telescope.nvim', branch = '0.1.x',
+	{'nvim-telescope/telescope.nvim', branch = '0.1.x', -- doesn't require setup() function
     	dependencies = { 'nvim-lua/plenary.nvim' }
     },
 	{'lewis6991/gitsigns.nvim'},

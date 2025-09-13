@@ -2,27 +2,31 @@
 local stdpath = vim.fn.stdpath("config")
 package.path = stdpath .. "/?.lua;" .. package.path
 
+require("getos")
+
+local function load_modules_from_path(path)
+	local files = vim.fn.readdir(stdpath .. "/" .. path .. "/")
+	for _, file in ipairs(files) do
+		local name = file:gsub("%.lua$", "")
+		require(path .. "." .. name)
+	end
+end
+
 -- base neovim settings
-require('base.mappings')
-require('base.theme')
+load_modules_from_path("base")
 
 -- install lazy 
 require("lazy.plugins")
 
 -- preinit
-require('plugins-preinit.web-devicons')
-require('plugins-preinit.treesitter')
-require('plugins-preinit.lsp')
-require('plugins-preinit.cmp-and-spell')
+load_modules_from_path("plugins-init-first")
 
 -- init plugins
-local files = vim.fn.readdir(stdpath .. "/plugins-init/")
-for _, file in ipairs(files) do
-	local name = file:gsub("%.lua$", "")
-	require("plugins-init." .. name)
+load_modules_from_path("plugins-init-sys-all")
+if is_unix_system() then
+	load_modules_from_path("plugins-init-sys-unix")
 end
 
 -- plugin mappings
-require("plugins-postinit.plugin-colorscheme")
-require("plugins-postinit.plugin-keys")
+load_modules_from_path("plugins-init-after")
 

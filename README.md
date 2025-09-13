@@ -2,16 +2,18 @@
 
 ![Screenshot](screenshots/screenshot-1.png)
 
-My neovim configuration based on `lazy.lua`. The configuration is still under development. It is adapted for use with wm (in my case, it's `hyprland`), `kitty`, `fish`.
+My neovim configuration based on `lazy.lua`. The configuration is still under development. It is adapted for use with wm (in my case, it's `hyprland`), `kitty`, `fish`. There is little support for `powershell` and `Windows`.
 
 ### additional dependencies
 * rust
 * rust-analyzer
 * yarn
+* ruff
 * npm
+* luajit
+unix-like systems only:
 * chafa (for displaying images)
 * imagemagick
-* luajit
 * xclip/xsel/wl-clipboard
 
 ### Language support
