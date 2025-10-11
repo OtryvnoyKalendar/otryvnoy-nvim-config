@@ -1,9 +1,10 @@
 function is_unix_system()
-	local path_separator = package.config:sub(1, 1)
-	return not (path_separator == "\\")
+	local handle = io.popen("uname")
+	local result = handle:read("*a")
+	handle:close()
+	if result == nil or result == "" then
+		return false
+	else
+		return true
+	end
 end
-
--- function is_unix_system()
--- 	return not (os.getenv("HOME") == nil)
--- end
-

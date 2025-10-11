@@ -5,10 +5,14 @@ require("getexist")
 vim.opt.termguicolors = true
 
 -- tabs and spaces
-vim.opt.tabstop = 4        -- Number of spaces that a tab displays
-vim.opt.shiftwidth = 4     -- Width of indentation when using >> and <<
+vim.opt.tabstop = 3        -- Number of spaces that a tab displays
+vim.opt.shiftwidth = 3     -- Width of indentation when using >> and <<
 vim.opt.expandtab = false  -- Replaces tab character with spaces
 vim.opt.smartindent = true -- Automatically sets indentation in the right places
+
+-- disable interfering swap files
+vim.opt.backup = false
+vim.opt.swapfile = false
 
 -- moving to a new line | wrap lines
 vim.opt.wrap = true

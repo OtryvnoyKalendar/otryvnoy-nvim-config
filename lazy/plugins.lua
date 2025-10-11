@@ -25,7 +25,7 @@ require("lazy").setup({
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path', 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-cmdline' },
 	},
-    {'hrsh7th/cmp-nvim-lsp-signature-help'},
+   {'hrsh7th/cmp-nvim-lsp-signature-help'},
 	{
         'linrongbin16/lsp-progress.nvim',
         event = {'VimEnter'},
@@ -90,7 +90,7 @@ require("lazy").setup({
 		},
 		version = '^1.0.0', -- optional: only update when a new 1.x version is released
 	},
-    {'jose-elias-alvarez/null-ls.nvim'},
+   {'jose-elias-alvarez/null-ls.nvim'},
 	{ 'fedepujol/move.nvim',
 		opts = {}
 	},

@@ -11,6 +11,7 @@ My neovim configuration based on `lazy.lua`. The configuration is still under de
 * ruff
 * npm
 * luajit
+
 unix-like systems only:
 * chafa (for displaying images)
 * imagemagick
