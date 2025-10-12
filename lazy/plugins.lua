@@ -146,7 +146,17 @@ require("lazy").setup({
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+		 routes = {
+			{
+			  filter = {
+				 event = "msg_show",
+				 kind = "",
+			  },
+			  opts = { skip = true },
+			},
+		 },
+		},
 		---@module 'noice'
 		dependencies = {
 			"MunifTanjim/nui.nvim",

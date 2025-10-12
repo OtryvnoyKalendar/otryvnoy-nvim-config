@@ -4,8 +4,7 @@
 
 My neovim configuration based on `lazy.lua`. The configuration is still under development. It is adapted for use with wm (in my case, it's `hyprland`), `kitty`, `fish`. There is little support for `powershell` and `Windows`.
 
-### additional dependencies
-* rust
+### Additional dependencies
 * rust-analyzer
 * yarn
 * ruff

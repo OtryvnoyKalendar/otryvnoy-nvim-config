@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 
 vim.lsp.config['clnagd'] = {
 	cmd = { "clangd", "--clang-tidy", "--background-index", "--offset-encoding=utf-8" },
-	-- filetypes = { 'cxx', "ixx", "c++", "cpp", "c", "h", "hpp" },
+	filetypes = { 'cxx', "ixx", "c++", "cpp", "c", "h", "hpp" },
 	root_markers = { ".clangd", "compile_commands.json", ".clang-format", "Makefile",
 		"meson.build", "meson_options.txt", "CMakeLists.txt" },
 	settings = {},
