@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 -- focus nvim-tree
-vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', opts) -- NvimTreeFocus
 
 -- cd for nvim-tree
 local nvim_tree_api = require('nvim-tree.api')

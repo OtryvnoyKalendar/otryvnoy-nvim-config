@@ -12,6 +12,7 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", opts)
 -- this mappings use p register
 vim.keymap.set("n", "<leader>;", "mpA;<esc>`p")
 vim.keymap.set("n", "<leader>:", "mpA:<esc>`p")
+vim.keymap.set("n", "<leader>,", "mpA,<esc>`p")
 vim.keymap.set("n", "<leader>{", "mpA {}<esc>`p")
 vim.keymap.set("n", "<leader><tab>", "mpI	<esc>`p")
 
@@ -54,4 +55,7 @@ vim.api.nvim_set_keymap("n", "<leader>q", '<cmd>qa<CR>', opts)
 
 -- no highlight
 vim.api.nvim_set_keymap("n", "<leader>n", '<cmd>noh<CR>', opts)
+
+-- hints
+vim.keymap.set("n", "<leader>r", vim.diagnostic.open_float, opts)
 

@@ -25,7 +25,7 @@ require("lazy").setup({
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path', 'hrsh7th/nvim-cmp', 'hrsh7th/cmp-cmdline' },
 	},
-   {'hrsh7th/cmp-nvim-lsp-signature-help'},
+   -- {'hrsh7th/cmp-nvim-lsp-signature-help'},
 	{
         'linrongbin16/lsp-progress.nvim',
         event = {'VimEnter'},
@@ -123,14 +123,6 @@ require("lazy").setup({
 	},
 	{ "f3fora/cmp-spell" },
 	{
-		'Wansmer/langmapper.nvim',
-		lazy = false,
-		priority = 1, -- High priority is needed if you will use `autoremap()`
-		config = function()
-			require('langmapper').setup({--[[ your config ]]})
-		end,
-	},
-	{
 		"sphamba/smear-cursor.nvim",
 		opts = {
 			smear_between_buffers = true,
@@ -222,6 +214,5 @@ require("lazy").setup({
 		"m00qek/baleia.nvim"
 	  },
 	},
-	{ "typicode/bg.nvim", lazy = false },
 })
 
