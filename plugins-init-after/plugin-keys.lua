@@ -1,7 +1,13 @@
 local opts = { noremap = true, silent = true }
 
--- focus nvim-tree
-vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', opts) -- NvimTreeFocus
+-- nvim-tree
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = "Toggle NvimTree" }) -- NvimTreeFocus
+
+-- move between buffers
+vim.keymap.set('n', 'J', '<cmd>BufferNext<CR>', { desc = "Next Buffer" })
+vim.keymap.set('n', 'K', '<cmd>BufferPrevious<CR>', { desc = "Previous Buffer" })
+-- close buffer
+vim.keymap.set('n', '<leader>w', '<cmd>BufferClose<CR>', { desc = "Close Buffer" })
 
 -- cd for nvim-tree
 local nvim_tree_api = require('nvim-tree.api')
@@ -25,11 +31,17 @@ local function create_horizontal_terminal()
 	vim.cmd('startinsert')
 end
 
-vim.keymap.set('n', '<leader>h', create_horizontal_terminal, opts)
-vim.keymap.set("n", "<leader>v", "<cmd>ToggleTerm dir=%:p:h direction=vertical size=30<CR>", opts)
+vim.keymap.set('n', '<leader>h', create_horizontal_terminal, { desc = "Horizontal terminal" })
+vim.keymap.set("n", "<leader>v",
+	"<cmd>ToggleTerm dir=%:p:h direction=vertical size=30<CR>",
+	{ desc = "Vertical terminal" }
+)
+
+-- comment code lines
+vim.keymap.set('n', '<leader>/', '<cmd>CommentToggle<CR>', { desc = 'Comment block' })
 
 -- LSP
-vim.keymap.set('n', '<leader>l', '<cmd>LspStop<CR>', { desc = 'Stop LSP'})
+vim.keymap.set('n', '<leader>l', '<cmd>LspStop<CR>', { desc = 'Stop LSP' })
 
 -- move code in visual mode
 vim.keymap.set('v', 'J', ':MoveBlock(1)<CR>', { desc = "Move lines down" })
@@ -39,9 +51,7 @@ vim.keymap.set('v', 'K', ':MoveBlock(-1)<CR>', { desc = "Move lines up" })
 -- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 
 -- markdown preview in browser
-vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreview<CR>', opts)
--- vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreviewStop<CR>', opts)
--- vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreviewToggle<CR>', opts)
+vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreview<CR>', { desc = "Markdown Preview" })
 
 -- telescope mappings
 local builtin = require('telescope.builtin')
@@ -110,7 +120,4 @@ opts)
 -- vim.api.nvim_set_keymap('n', '<leader>fhf',
 -- [[<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand("$HOME") })<CR>]],
 -- opts)
-
--- comment code lines
-vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>CommentToggle<CR>', opts)
 

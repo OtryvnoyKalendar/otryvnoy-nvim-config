@@ -5,16 +5,21 @@
 My neovim configuration based on `lazy.lua`. The configuration is still under development. It is adapted for use with wm (in my case, it's `hyprland`), `kitty`, `fish`. There is little support for `powershell` and `Windows`.
 
 ### Additional dependencies
-* rust-analyzer
-* yarn
-* ruff
-* npm
-* luajit
+- LSP:
+    - rust-analyzer
+    - ruff
+- Package managers:
+    - yarn
+    - npm
+- Performance:
+    - luajit
 
-unix-like systems only:
+#### Unix-like systems only:
 * chafa (for displaying images)
 * imagemagick
 * xclip/xsel/wl-clipboard
+
+---
 
 ### Language support
 There is support for spell checking of the Russian language. For this to work, don't do anything with the `spell` folder.
@@ -38,4 +43,5 @@ LSP protocols are configured for languages:
 | `leader`+`x` | switch to normal mode in terminal |
 | `leader`+`/` | comment code lines |
 | `J`/`K` (visual mode) | move code line up/down |
+| `J`/`K` (normal mode) | move between buffers |
 
