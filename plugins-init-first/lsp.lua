@@ -13,12 +13,12 @@ vim.lsp.config('rust_analyzer', {
 	},
 })
 
+-- Auto-format ("lint") on save.
 vim.api.nvim_create_autocmd('LspAttach', {
 group = vim.api.nvim_create_augroup('my.lsp', {}),
 callback = function(args)
   local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-  -- Auto-format ("lint") on save.
   -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
   if not client:supports_method('textDocument/willSaveWaitUntil')
 		and client:supports_method('textDocument/formatting')
@@ -36,7 +36,7 @@ end,
 
 vim.lsp.enable('rust_analyzer')
 
--- recognize *.ixx as a c++ file
+-- recognize *.ixx as a C++ file
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	pattern = "*.ixx",
 	command = "set filetype=cpp"
@@ -56,9 +56,20 @@ vim.lsp.config['clnagd'] = {
 		}
 	},
 }
--- vim.lsp.enable('clnagd')
+vim.lsp.enable('clnagd')
 
 vim.lsp.enable('cssls')
 vim.lsp.enable('golangci_lint_ls')
 vim.lsp.enable('ruff')
 
+-- inlay hints
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client ~= nil and client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true)
+    end
+    require("lsp-endhints").enable()
+  end,
+})

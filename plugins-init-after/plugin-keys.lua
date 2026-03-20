@@ -28,20 +28,15 @@ end
 vim.keymap.set('n', '<leader>h', create_horizontal_terminal, opts)
 vim.keymap.set("n", "<leader>v", "<cmd>ToggleTerm dir=%:p:h direction=vertical size=30<CR>", opts)
 
--- move code
--- Normal-mode commands
-vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', opts)
-vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', opts)
--- vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', opts) -- doesn't work
--- vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', opts)
-vim.keymap.set('n', '<leader>wf', ':MoveWord(1)<CR>', opts)
-vim.keymap.set('n', '<leader>wb', ':MoveWord(-1)<CR>', opts)
+-- LSP
+vim.keymap.set('n', '<leader>l', '<cmd>LspStop<CR>', { desc = 'Stop LSP'})
 
--- Visual-mode commands
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
--- vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', opts)
--- vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', opts)
+-- move code in visual mode
+vim.keymap.set('v', 'J', ':MoveBlock(1)<CR>', { desc = "Move lines down" })
+vim.keymap.set('v', 'K', ':MoveBlock(-1)<CR>', { desc = "Move lines up" })
+-- instead plugin:
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 
 -- markdown preview in browser
 vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreview<CR>', opts)

@@ -37,5 +37,5 @@ LSP protocols are configured for languages:
 | `leader`+`v`  | open vertiacal terminal |
 | `leader`+`x` | switch to normal mode in terminal |
 | `leader`+`/` | comment code lines |
-| `Alt`+`j`/`k` | move code line up/down |
+| `J`/`K` (visual mode) | move code line up/down |
 
