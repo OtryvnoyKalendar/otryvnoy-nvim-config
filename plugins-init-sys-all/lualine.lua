@@ -44,9 +44,9 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename', get_time},
+    lualine_a = {'mode', "grapple"},
+    lualine_b = {'filename', 'diagnostics'},
+    lualine_c = {'branch', 'diff', get_time},
 
     lualine_x = {'ex.lsp.single', 'filetype'},
     lualine_y = {'encoding'},

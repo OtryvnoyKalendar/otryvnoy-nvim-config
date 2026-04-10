@@ -90,7 +90,7 @@ require("lazy").setup({
 		},
 		version = '^1.0.0', -- optional: only update when a new 1.x version is released
 	},
-   {'jose-elias-alvarez/null-ls.nvim'},
+    {'jose-elias-alvarez/null-ls.nvim'},
 	{ 'fedepujol/move.nvim',
 		opts = {}
 	},
@@ -238,6 +238,12 @@ require("lazy").setup({
 		  autoEnableHints = true,
 		})
 	  end,
+	},
+	{
+		"cbochs/grapple.nvim",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons", lazy = true }
+		},
 	},
 })
 

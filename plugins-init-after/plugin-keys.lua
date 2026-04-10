@@ -51,7 +51,18 @@ vim.keymap.set('v', 'K', ':MoveBlock(-1)<CR>', { desc = "Move lines up" })
 -- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
 
 -- markdown preview in browser
-vim.keymap.set('n', '<leader>m', '<cmd>MarkdownPreview<CR>', { desc = "Markdown Preview" })
+vim.keymap.set('n', '<leader>p', '<cmd>MarkdownPreview<CR>', { desc = "Markdown Preview" })
+
+-- grapple
+vim.keymap.set("n", "<leader>m", require("grapple").toggle, { desc = "Mark/Unmark file" })
+vim.keymap.set("n", "M", "<CMD>Telescope grapple tags<CR>", { desc = "Show all tags" })
+
+for i = 1, 9 do
+  vim.keymap.set("n", "<leader>" .. i, "<CMD>Grapple select index=" .. i .. "<CR>", {
+    desc = "Switch to tag " .. i,
+  })
+end
+
 
 -- telescope mappings
 local builtin = require('telescope.builtin')
